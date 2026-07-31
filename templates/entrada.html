@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jardim da Maria</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/entrada.css') }}">
+</head>
+<body>
+
+<video class="video" autoplay muted loop playsinline>
+    <source src="{{ url_for('static', filename='video/entrada.mp4') }}" type="video/mp4">
+</video>
+
+<a href="/menu" class="btn-entrar"></a>
+
+<div class="fade"></div>
+
+<script src="{{ url_for('static', filename='js/entrada.js') }}"></script>
+
+</body>
+</html>

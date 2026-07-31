@@ -1,0 +1,135 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:#87CEEB;
+}
+
+.jardim{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    animation:camera 2.5s ease;
+}
+
+.background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Nuvens */
+
+.cloud{
+    position:absolute;
+    width:220px;
+    opacity:.9;
+}
+
+.cloud1{
+    top:0;
+    left:-250px;
+    animation:nuvem 55s linear infinite;
+}
+
+.cloud2{
+    top:40px;
+    left:-500px;
+    animation:nuvem 80s linear infinite;
+}
+
+@keyframes nuvem{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(2200px);
+    }
+
+}
+
+/* Zoom inicial */
+
+@keyframes camera{
+
+    from{
+        transform:scale(1.08);
+    }
+
+    to{
+        transform:scale(1);
+    }
+
+}
+
+/* Zoom ao clicar */
+
+.zoom{
+
+    animation:zoomCasa .8s forwards;
+
+}
+
+@keyframes zoomCasa{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.35);
+        transform-origin:75% 55%;
+    }
+
+}
+
+/* Área clicável da casa */
+
+.click-casa{
+
+    position:absolute;
+
+    right:180px;
+    bottom:120px;
+
+    width:220px;
+    height:240px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    background:transparent;
+
+}
+
+/* Tela preta */
+
+.fade{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:black;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.8s;
+
+    z-index:9999;
+
+}

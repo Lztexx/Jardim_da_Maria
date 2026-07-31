@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jardim</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jardim.css') }}">
+</head>
+<body>
+
+<div class="fade"></div>
+
+<div class="jardim">
+
+    <img class="background"
+         src="{{ url_for('static', filename='img/jardim/background.png') }}">
+
+    <img class="cloud cloud1"
+         src="{{ url_for('static', filename='img/jardim/cloud.png') }}">
+
+    <img class="cloud cloud2"
+         src="{{ url_for('static', filename='img/jardim/cloud.png') }}">
+
+    <!-- Área invisível da casa -->
+    <a href="/casa" class="click-casa"></a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/jardim.js') }}"></script>
+
+</body>
+</html>   

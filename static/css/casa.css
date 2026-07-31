@@ -1,0 +1,111 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:#000;
+    font-family:Georgia, serif;
+}
+
+/* ===================== */
+/* VÍDEO */
+/* ===================== */
+
+.background-video{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+}
+
+/* ===================== */
+/* ESCURECIMENTO */
+/* ===================== */
+
+.escuro{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.18);
+    z-index:-2;
+    transition:.5s;
+}
+
+/* ===================== */
+/* LIVRO */
+/* ===================== */
+
+.livro-container{
+
+    position:absolute;
+
+    left:50%;
+    top:67%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:100;
+
+}
+
+.livro{
+
+    width:145px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    filter:drop-shadow(0 22px 35px rgba(0,0,0,.65));
+
+    animation:flutuar 3s ease-in-out infinite;
+
+    transition:
+        transform .35s,
+        filter .35s;
+
+}
+
+/* ===================== */
+/* HOVER */
+/* ===================== */
+
+.livro:hover{
+
+    transform:scale(1.08) rotate(-3deg);
+
+    filter:
+        drop-shadow(0 25px 45px rgba(0,0,0,.75))
+        drop-shadow(0 0 18px rgba(255,215,0,.45));
+
+}
+
+/* ===================== */
+/* FLUTUAR */
+/* ===================== */
+
+@keyframes flutuar{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}

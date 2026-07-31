@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Casa</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/casa.css') }}">
+
+</head>
+
+<body>
+
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="{{ url_for('static', filename='video/casa.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="escuro"></div>
+
+    <div class="livro-container">
+
+        <img class="livro"
+             src="{{ url_for('static', filename='img/livro/book.png') }}">
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/casa.js') }}"></script>
+
+</body>
+
+</html>

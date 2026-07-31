@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Livro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/livro.css') }}">
+
+</head>
+
+<body>
+
+<div class="scene">
+
+<div class="book" id="book">
+
+    <!-- ========================= -->
+    <!-- CAPA -->
+    <!-- ========================= -->
+
+    <div class="cover" id="cover">
+
+        <img src="{{ url_for('static', filename='img/livro/book.png') }}">
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- FOLHA 1 -->
+    <!-- ========================= -->
+
+    <div class="paper" id="p1">
+
+        <div class="front">
+
+            <img
+                class="foto-pagina"
+                src="{{ url_for('static', filename='img/livro/foto1.jpeg') }}"
+                alt="Foto">
+
+        </div>
+
+        <div class="back">
+
+            <div class="content">
+
+                <h1>Capítulo 1</h1>
+
+                <p>
+
+                    Aqui ficarão textos,
+                    fotos e mensagens.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- FOLHA 2 -->
+    <!-- ========================= -->
+
+    <div class="paper" id="p2">
+
+        <div class="front">
+
+            <div class="content">
+
+                <h1>Página 3</h1>
+
+                <p>
+
+                    Espaço reservado
+                    para colocar fotos.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="back">
+
+            <div class="content">
+
+                <h1>Página 4</h1>
+
+                <p>
+
+                    Outra lembrança.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ========================= -->
+    <!-- FOLHA 3 -->
+    <!-- ========================= -->
+
+    <div class="paper" id="p3">
+
+        <div class="front">
+
+            <div class="content">
+
+                <h1>Página 5</h1>
+
+                <p>
+
+                    Aqui poderá existir
+                    uma galeria de fotos
+                    da Maria.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="back">
+
+            <div class="content">
+
+                <h1>Página 6</h1>
+
+                <p>
+
+                    Espaço para textos,
+                    cartas e mensagens.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- FOLHA 4 -->
+    <!-- ========================= -->
+
+    <div class="paper" id="p4">
+
+        <div class="front">
+
+            <div class="content">
+
+                <h1>Página 7</h1>
+
+                <p>
+
+                    Outra página do livro.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="back">
+
+            <div class="content">
+
+                <h1>Página 8</h1>
+
+                <p>
+
+                    Continue adicionando
+                    novas lembranças.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- FOLHA 5 -->
+    <!-- ========================= -->
+
+    <div class="paper" id="p5">
+
+        <div class="front">
+
+            <div class="content">
+
+                <h1>Página 9</h1>
+
+            </div>
+
+        </div>
+
+        <div class="back">
+
+            <div class="content">
+
+                <h1>Página 10</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- FOLHA 6 -->
+    <!-- ========================= -->
+
+    <div class="paper" id="p6">
+
+        <div class="front">
+
+            <div class="content">
+
+                <h1>Fim</h1>
+
+                <p>
+
+                    Obrigado por visitar
+                    o Jardim da Maria 🌻
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="back">
+
+            <div class="content">
+
+                <h1>Até logo!</h1>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+    <button id="prev">
+        ◀
+    </button>
+
+    <span id="contador">
+        1 / 12
+    </span>
+
+    <button id="next">
+        ▶
+    </button>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/livro.js') }}"></script>
+
+</body>
+</html>
