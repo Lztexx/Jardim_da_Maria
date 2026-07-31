@@ -1,104 +1,105 @@
 const book = document.getElementById("book");
 const cover = document.getElementById("cover");
 
-const papers = [
-    document.getElementById("p1"),
-    document.getElementById("p2"),
-    document.getElementById("p3"),
-    document.getElementById("p4"),
-    document.getElementById("p5"),
-    document.getElementById("p6")
-];
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
 
-const nextBtn = document.getElementById("next");
-const prevBtn = document.getElementById("prev");
 const contador = document.getElementById("contador");
 
-let currentPaper = 0;
-let bookOpen = false;
+const papers = document.querySelectorAll(".paper");
+
+let current = 0;
+let aberto = false;
+
+// =========================
+// Organiza z-index
+// =========================
+
+papers.forEach((paper,index)=>{
+
+    paper.style.zIndex = papers.length - index;
+
+});
+
+// =========================
 
 function atualizarContador(){
 
-    let pagina = (currentPaper * 2) + 1;
+    if(TOTAL_PAGINAS == 0){
 
-    if(pagina > 12){
-        pagina = 12;
+        contador.innerHTML = "0 / 0";
+
+        return;
+
     }
 
-    contador.innerText = pagina + " / 12";
+    let pagina = current + 1;
+
+    if(pagina > TOTAL_PAGINAS){
+
+        pagina = TOTAL_PAGINAS;
+
+    }
+
+    contador.innerHTML = pagina + " / " + TOTAL_PAGINAS;
 
 }
 
-function abrirLivro(){
+// =========================
+// Abrir livro
+// =========================
 
-    if(bookOpen) return;
+cover.onclick = function(){
+
+    if(aberto) return;
+
+    aberto = true;
 
     book.classList.add("open");
 
-    bookOpen = true;
+    setTimeout(()=>{
+
+        cover.style.zIndex = "0";
+
+    },800);
 
 }
 
-function fecharLivro(){
+// =========================
+// Próxima folha
+// =========================
 
-    if(!bookOpen) return;
+next.onclick = function(){
 
-    book.classList.remove("open");
+    if(!aberto) return;
 
-    bookOpen = false;
+    if(current >= papers.length) return;
+
+    papers[current].classList.add("flipped");
+
+    papers[current].style.zIndex = current;
+
+    current++;
+
+    atualizarContador();
 
 }
 
-cover.addEventListener("click",()=>{
+// =========================
+// Folha anterior
+// =========================
 
-    abrirLivro();
+prev.onclick = function(){
 
-    atualizarContador();
+    if(!aberto) return;
 
-});
+    if(current <= 0){
 
-/* ========================================= */
-/* PRÓXIMA PÁGINA */
-/* ========================================= */
+        aberto = false;
 
-nextBtn.addEventListener("click",()=>{
+        cover.style.zIndex = "9999";
 
-    if(!bookOpen){
-
-        abrirLivro();
-        atualizarContador();
-
-        return;
-
-    }
-
-    if(currentPaper >= papers.length){
-
-        return;
-
-    }
-
-    const folha = papers[currentPaper];
-
-    folha.classList.add("flipped");
-
-    folha.style.zIndex = currentPaper;
-
-    currentPaper++;
-
-    atualizarContador();
-
-});
-
-/* ========================================= */
-/* PÁGINA ANTERIOR */
-/* ========================================= */
-
-prevBtn.addEventListener("click",()=>{
-
-    if(currentPaper <= 0){
-
-        fecharLivro();
+        book.classList.remove("open");
 
         atualizarContador();
 
@@ -106,28 +107,37 @@ prevBtn.addEventListener("click",()=>{
 
     }
 
-    currentPaper--;
+    current--;
 
-    const folha = papers[currentPaper];
+    papers[current].classList.remove("flipped");
 
-    folha.classList.remove("flipped");
-
-    folha.style.zIndex = 100 - currentPaper;
+    papers[current].style.zIndex =
+    papers.length - current;
 
     atualizarContador();
 
+}
+
+// =========================
+// Teclado
+// =========================
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key=="ArrowRight"){
+
+        next.click();
+
+    }
+
+    if(e.key=="ArrowLeft"){
+
+        prev.click();
+
+    }
+
 });
 
-/* ========================================= */
-/* Z-INDEX DAS FOLHAS */
-/* ========================================= */
+// =========================
 
-function organizarFolhas(){
-
-    papers.forEach((folha,index)=>{
-
-        folha.style.zIndex = papers.length - index;
-
-    });
-
-}
+atualizarContador();
