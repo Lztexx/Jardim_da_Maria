@@ -258,3 +258,138 @@ body{
     text-align:center;
 
 }
+
+/* ================================= */
+/* CELULAR */
+/* ================================= */
+
+@media screen and (max-width:768px){
+
+    html,
+    body{
+
+        width:100%;
+        height:100%;
+
+        overflow:hidden;
+
+    }
+
+    .scene{
+
+        width:100vw;
+        height:100vh;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        perspective:1500px;
+
+    }
+
+    .book{
+
+        width:95vw;
+        height:75vh;
+
+        position:relative;
+
+    }
+
+    .cover{
+
+        width:95vw;
+        height:75vh;
+
+        left:0;
+        top:0;
+
+    }
+
+    .paper{
+
+        width:95vw;
+        height:75vh;
+
+        left:0;
+        top:0;
+
+    }
+
+    .front,
+    .back{
+
+        width:100%;
+        height:100%;
+
+    }
+
+    .content{
+
+        padding:20px;
+
+    }
+
+    .content h1{
+
+        font-size:24px;
+
+        margin-bottom:15px;
+
+    }
+
+    .content p{
+
+        font-size:17px;
+
+        line-height:28px;
+
+    }
+
+    .foto-pagina{
+
+        width:100%;
+
+        max-height:220px;
+
+        object-fit:cover;
+
+        margin-bottom:15px;
+
+        border-radius:10px;
+
+    }
+
+    .controls{
+
+        width:100%;
+
+        bottom:20px;
+
+        left:50%;
+
+        transform:translateX(-50%);
+
+        justify-content:center;
+
+        gap:18px;
+
+    }
+
+    .controls button{
+
+        width:60px;
+        height:60px;
+
+        font-size:24px;
+
+    }
+
+    #contador{
+
+        font-size:18px;
+
+    }
+
+}

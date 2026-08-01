@@ -5,131 +5,346 @@
 }
 
 body{
-    overflow:hidden;
-    background:#87CEEB;
-}
 
-.jardim{
-    position:relative;
     width:100vw;
     height:100vh;
-    animation:camera 2.5s ease;
+
+    overflow:hidden;
+
+    background:#000;
+
 }
+
+.cenario{
+
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+/* =========================== */
+/* FUNDO */
+/* =========================== */
 
 .background{
+
     position:absolute;
+
+    inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
-}
 
-/* Nuvens */
-
-.cloud{
-    position:absolute;
-    width:220px;
-    opacity:.9;
-}
-
-.cloud1{
-    top:0;
-    left:-250px;
-    animation:nuvem 55s linear infinite;
-}
-
-.cloud2{
-    top:40px;
-    left:-500px;
-    animation:nuvem 80s linear infinite;
-}
-
-@keyframes nuvem{
-
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(2200px);
-    }
+    animation:zoom 25s ease-in-out infinite alternate;
 
 }
 
-/* Zoom inicial */
+/* =========================== */
+/* ÁRVORES */
+/* =========================== */
 
-@keyframes camera{
-
-    from{
-        transform:scale(1.08);
-    }
-
-    to{
-        transform:scale(1);
-    }
-
-}
-
-/* Zoom ao clicar */
-
-.zoom{
-
-    animation:zoomCasa .8s forwards;
-
-}
-
-@keyframes zoomCasa{
-
-    from{
-        transform:scale(1);
-    }
-
-    to{
-        transform:scale(1.35);
-        transform-origin:75% 55%;
-    }
-
-}
-
-/* Área clicável da casa */
-
-.click-casa{
+.arvore{
 
     position:absolute;
 
-    right:180px;
-    bottom:120px;
+    width:280px;
 
-    width:220px;
-    height:240px;
+    bottom:130px;
+
+    z-index:5;
+
+}
+
+.esquerda{
+
+    left:-20px;
+
+}
+
+.direita{
+
+    right:-20px;
+
+    transform:scaleX(-1);
+
+}
+
+/* =========================== */
+/* CAMINHO */
+/* =========================== */
+
+.caminho{
+
+    position:absolute;
+
+    width:520px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:0;
+
+    z-index:2;
+
+}
+
+/* =========================== */
+/* CASA */
+/* =========================== */
+
+.casa{
+
+    position:absolute;
+
+    width:340px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:40px;
+
+    z-index:20;
 
     cursor:pointer;
 
-    z-index:999;
-
-    background:transparent;
+    transition:.35s;
 
 }
 
-/* Tela preta */
+.casa:hover{
 
-.fade{
+    transform:translateX(-50%) scale(1.05);
 
-    position:fixed;
+}
 
-    top:0;
-    left:0;
+/* =========================== */
+/* ESTUFA */
+/* =========================== */
 
-    width:100%;
-    height:100%;
+.estufa{
 
-    background:black;
+    position:absolute;
 
-    opacity:0;
+    width:180px;
+
+    right:180px;
+
+    bottom:180px;
+
+    z-index:18;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.estufa:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* =========================== */
+/* GIRASSÓIS */
+/* =========================== */
+
+.g{
+
+    position:absolute;
+
+    width:90px;
+
+    bottom:80px;
+
+    animation:balanco 3s ease-in-out infinite;
+
+    z-index:12;
+
+}
+
+.g1{ left:120px; }
+.g2{ left:260px; }
+.g3{ left:420px; }
+
+.g4{ right:420px; }
+.g5{ right:260px; }
+.g6{ right:120px; }
+
+/* =========================== */
+
+@keyframes balanco{
+
+    0%{
+
+        transform:rotate(-3deg);
+
+    }
+
+    50%{
+
+        transform:rotate(3deg);
+
+    }
+
+    100%{
+
+        transform:rotate(-3deg);
+
+    }
+
+}
+
+/* =========================== */
+
+@keyframes zoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+/* =========================== */
+/* CELULAR */
+/* =========================== */
+
+@media(max-width:768px){
+
+    .casa{
+
+        width:200px;
+
+        bottom:170px;
+
+    }
+
+    .estufa{
+
+        width:120px;
+
+        right:40px;
+
+        bottom:150px;
+
+    }
+
+    .arvore{
+
+        width:170px;
+
+    }
+
+    .caminho{
+
+        width:300px;
+
+    }
+
+    .g{
+
+        width:55px;
+
+    }
+
+}
+
+/* =========================== */
+/* FOLHAS */
+/* =========================== */
+
+.folha{
+
+    position:absolute;
+
+    z-index:50;
+
+    animation:folhaCaindo linear infinite;
 
     pointer-events:none;
 
-    transition:.8s;
+}
 
-    z-index:9999;
+@keyframes folhaCaindo{
+
+    0%{
+
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(120vh)
+        translateX(120px)
+        rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================== */
+/* BORBOLETAS */
+/* =========================== */
+
+.borboleta{
+
+    position:absolute;
+
+    z-index:45;
+
+    animation:voar ease-in-out infinite alternate;
+
+    pointer-events:none;
+
+}
+
+@keyframes voar{
+
+    from{
+
+        transform:
+        translateY(0)
+        rotate(-8deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(-40px)
+        translateX(60px)
+        rotate(8deg);
+
+    }
 
 }

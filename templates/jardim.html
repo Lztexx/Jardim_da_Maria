@@ -1,32 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Jardim</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/jardim.css') }}">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Jardim da Maria</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/jardim.css') }}">
+
 </head>
+
 <body>
 
-<div class="fade"></div>
+<div class="cenario">
 
-<div class="jardim">
+    <!-- Fundo -->
+    <img
+    src="{{ url_for('static', filename='img/jardim/background.png') }}"
+    class="background">
 
-    <img class="background"
-         src="{{ url_for('static', filename='img/jardim/background.png') }}">
+    <!-- Nuvens -->
+    <div class="nuvens"></div>
 
-    <img class="cloud cloud1"
-         src="{{ url_for('static', filename='img/jardim/cloud.png') }}">
+    <!-- Árvores -->
+    <img
+    src="{{ url_for('static', filename='img/jardim/arvore.png') }}"
+    class="arvore esquerda">
 
-    <img class="cloud cloud2"
-         src="{{ url_for('static', filename='img/jardim/cloud.png') }}">
+    <img
+    src="{{ url_for('static', filename='img/jardim/arvore.png') }}"
+    class="arvore direita">
 
-    <!-- Área invisível da casa -->
-    <a href="/casa" class="click-casa"></a>
+    <!-- Caminho -->
+    <img
+    src="{{ url_for('static', filename='img/jardim/caminho.png') }}"
+    class="caminho">
+
+    <!-- Casa -->
+    <a href="/casa">
+
+        <img
+        src="{{ url_for('static', filename='img/jardim/casa.png') }}"
+        class="casa">
+
+    </a>
+
+    <!-- Estufa -->
+    <a href="/estufa">
+
+        <img
+        src="{{ url_for('static', filename='img/jardim/estufa.png') }}"
+        class="estufa">
+
+    </a>
+
+    <!-- Girassóis -->
+
+    <img src="{{ url_for('static', filename='img/jardim/girassol.png') }}" class="g g1">
+    <img src="{{ url_for('static', filename='img/jardim/girassol.png') }}" class="g g2">
+    <img src="{{ url_for('static', filename='img/jardim/girassol.png') }}" class="g g3">
+    <img src="{{ url_for('static', filename='img/jardim/girassol.png') }}" class="g g4">
+    <img src="{{ url_for('static', filename='img/jardim/girassol.png') }}" class="g g5">
+    <img src="{{ url_for('static', filename='img/jardim/girassol.png') }}" class="g g6">
+
+    <!-- Borboletas -->
+    <div class="borboletas"></div>
+
+    <!-- Folhas -->
+    <div class="folhas"></div>
 
 </div>
 
 <script src="{{ url_for('static', filename='js/jardim.js') }}"></script>
 
 </body>
-</html>   
+</html>

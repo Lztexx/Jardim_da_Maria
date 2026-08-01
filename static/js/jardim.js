@@ -1,19 +1,58 @@
-const casa = document.querySelector(".click-casa");
-const jardim = document.querySelector(".jardim");
-const fade = document.querySelector(".fade");
+const folhas = document.querySelector(".folhas");
+const borboletas = document.querySelector(".borboletas");
 
-casa.addEventListener("click", function(e){
+// ================================
+// FOLHAS
+// ================================
 
-    e.preventDefault();
+for(let i=0;i<20;i++){
 
-    jardim.classList.add("zoom");
+    const folha=document.createElement("img");
 
-    fade.style.opacity = "1";
+    folha.src="/static/img/jardim/folha.png";
 
-    setTimeout(function(){
+    folha.className="folha";
 
-        window.location.href = "/casa";
+    folha.style.left=Math.random()*100+"vw";
 
-    },800);
+    folha.style.top=(-Math.random()*500)+"px";
 
-});
+    folha.style.width=(20+Math.random()*30)+"px";
+
+    folha.style.animationDuration=
+    (8+Math.random()*8)+"s";
+
+    folha.style.animationDelay=
+    (Math.random()*8)+"s";
+
+    folhas.appendChild(folha);
+
+}
+
+// ================================
+// BORBOLETAS
+// ================================
+
+for(let i=0;i<6;i++){
+
+    const b=document.createElement("img");
+
+    b.src="/static/img/jardim/borboleta.png";
+
+    b.className="borboleta";
+
+    b.style.left=(10+Math.random()*80)+"vw";
+
+    b.style.top=(10+Math.random()*60)+"vh";
+
+    b.style.width=(35+Math.random()*25)+"px";
+
+    b.style.animationDuration=
+    (5+Math.random()*5)+"s";
+
+    b.style.animationDelay=
+    (Math.random()*5)+"s";
+
+    borboletas.appendChild(b);
+
+}

@@ -1,16 +1,32 @@
-const botao = document.querySelector(".btn-entrar");
-const fade = document.querySelector(".fade");
+const particles =
+document.querySelector(".particles");
 
-botao.addEventListener("click", function(e){
+for(let i=0;i<60;i++){
 
-    e.preventDefault();
+let p=document.createElement("span");
 
-    fade.style.opacity = "1";
+p.style.left=Math.random()*100+"%";
 
-    setTimeout(function(){
+p.style.animationDuration=
+(6+Math.random()*8)+"s";
 
-        window.location.href="/menu";
+p.style.animationDelay=
+Math.random()*6+"s";
 
-    },800);
+particles.appendChild(p);
 
-});
+}
+
+document
+.getElementById("entrar")
+.onclick=function(){
+
+document.body.style.opacity="0";
+
+setTimeout(()=>{
+
+location.href="/menu";
+
+},700);
+
+}

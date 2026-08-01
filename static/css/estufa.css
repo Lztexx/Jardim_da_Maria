@@ -1,0 +1,48 @@
+/* ================================= */
+/* CELULAR */
+/* ================================= */
+
+@media screen and (max-width:768px){
+
+    html,
+    body{
+
+        width:100%;
+        height:100%;
+
+        overflow:hidden;
+
+    }
+
+    .background{
+
+        width:100vw;
+        height:100vh;
+
+        object-fit:cover;
+
+    }
+
+    .girassol{
+
+        width:40vw;
+
+        left:50%;
+
+        bottom:18%;
+
+        transform:translateX(-50%);
+
+    }
+
+    .voltar{
+
+        width:16vw;
+        height:16vw;
+
+        left:5%;
+        top:5%;
+
+    }
+
+}
