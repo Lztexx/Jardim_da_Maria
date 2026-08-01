@@ -184,17 +184,25 @@ body{
 
 }
 
+/* FOTO */
+
 .foto-pagina{
 
     width:90%;
 
-    max-height:280px;
+    max-width:320px;
 
-    object-fit:cover;
+    height:auto;
+
+    max-height:420px;
+
+    object-fit:contain;
 
     border-radius:10px;
 
     margin-bottom:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.20);
 
 }
 
@@ -351,13 +359,19 @@ body{
 
         width:100%;
 
-        max-height:220px;
+        max-width:280px;
 
-        object-fit:cover;
+        height:auto;
+
+        max-height:320px;
+
+        object-fit:contain;
 
         margin-bottom:15px;
 
         border-radius:10px;
+
+        box-shadow:0 8px 20px rgba(0,0,0,.20);
 
     }
 
