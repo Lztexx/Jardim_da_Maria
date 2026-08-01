@@ -1,47 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Nova Página</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Nova Página</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/nova.css') }}">
+
 </head>
+
 <body>
 
-<form method="POST" enctype="multipart/form-data">
+<div class="container">
 
-    <h2>Nova Página 🌻</h2>
+    <h1>🌻 Nova Página do Livro</h1>
 
-    <p>Título</p>
+    <form
+    action="/nova"
+    method="POST"
+    enctype="multipart/form-data">
 
-    <input
+        <label>Título</label>
+
+        <input
         type="text"
         name="titulo"
         required>
 
-    <br><br>
+        <label>Texto</label>
 
-    <p>Texto</p>
-
-    <textarea
+        <textarea
         name="texto"
         rows="8"
-        cols="60"
         required></textarea>
 
-    <br><br>
+        <label>Imagem</label>
 
-    <p>Imagem</p>
-
-    <input
+        <input
         type="file"
-        name="imagem">
+        name="imagem"
+        id="imagem"
+        accept="image/*">
 
-    <br><br>
+        <img
+        id="preview"
+        src="#"
+        style="display:none;">
 
-    <button type="submit">
-        Salvar Página
-    </button>
+        <div class="botoes">
 
-</form>
+            <a href="/banco">
+
+                Voltar
+
+            </a>
+
+            <button type="submit">
+
+                💾 Salvar Página
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+
+const input=document.getElementById("imagem");
+const preview=document.getElementById("preview");
+
+input.onchange=e=>{
+
+    const file=e.target.files[0];
+
+    if(!file)return;
+
+    preview.src=URL.createObjectURL(file);
+
+    preview.style.display="block";
+
+}
+
+</script>
 
 </body>
 </html>

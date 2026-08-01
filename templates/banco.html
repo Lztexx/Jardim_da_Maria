@@ -1,69 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Banco de Dados</title>
 
-    <style>
+<meta charset="UTF-8">
 
-        body{
-            font-family: Arial;
-            background:#f5f5f5;
-            padding:40px;
-        }
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        .pagina{
+<title>Banco da Maria</title>
 
-            background:white;
-            padding:20px;
-            margin-bottom:20px;
-            border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,.15);
-
-        }
-
-        img{
-
-            width:300px;
-            margin-top:15px;
-            border-radius:10px;
-
-        }
-
-    </style>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/banco.css') }}">
 
 </head>
+
 <body>
 
-<h1>Páginas do Jardim 🌻</h1>
+<div class="container">
 
-{% for pagina in paginas %}
+    <h1>📚 Banco da Maria</h1>
 
-<br><br>
+    <a href="/nova" class="novo">
 
-<a href="/editar/{{ pagina[0] }}">
-    <button>✏️ Editar</button>
-</a>
+        ➕ Nova Página
 
-<a href="/excluir/{{ pagina[0] }}">
-    <button>🗑️ Excluir</button>
-</a>
+    </a>
 
-<div class="pagina">
+    {% if paginas|length == 0 %}
 
-<h2>{{ pagina[1] }}</h2>
+        <div class="vazio">
 
-<p>{{ pagina[2] }}</p>
+            Nenhuma página cadastrada.
 
-{% if pagina[3] != "" %}
+        </div>
 
-<img src="{{ url_for('static', filename='img/uploads/' + pagina[3]) }}">
+    {% else %}
 
-{% endif %}
+    <div class="grid">
+
+    {% for pagina in paginas %}
+
+        <div class="card">
+
+            {% if pagina[3] != "" %}
+
+            <img
+            src="{{ url_for('static', filename='img/uploads/' + pagina[3]) }}">
+
+            {% endif %}
+
+            <h2>
+
+                {{ pagina[1] }}
+
+            </h2>
+
+            <p>
+
+                {{ pagina[2][:120] }}...
+
+            </p>
+
+            <div class="acoes">
+
+                <a
+                class="editar"
+                href="/editar/{{ pagina[0] }}">
+
+                ✏️ Editar
+
+                </a>
+
+                <a
+                class="excluir"
+                href="/excluir/{{ pagina[0] }}">
+
+                🗑️ Excluir
+
+                </a>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+    </div>
+
+    {% endif %}
 
 </div>
 
-{% endfor %}
-
 </body>
+
 </html>
